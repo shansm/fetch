@@ -23,4 +23,6 @@ $(window).load(function () {
 
 and/or you can add the class 'fetch' to any anchor link tag in the DOM and it will get picked up by the fetch script (by default this is set to true, but if you want to turn this off you can switch the second argument to false)...
 
+```html
 fetch.init(["http://www.SlickDeals.net", "http://www.ChicagoTribune.com"], false);
+```
