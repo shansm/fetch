@@ -8,37 +8,36 @@
 var fetch = (function() {
     "use strict";
     return {
-        totalAssetsToFetch: [],
         init: function(userProvided, flagToScanDOM) {
-            //Default values
             var userProvided = userProvided || [],
                 flagToScanDOM = (flagToScanDOM === undefined) || (flagToScanDOM === true) ? true : false;
-            //Grab user given URL if provided...
             if (userProvided.length >= 1) {
-                this.userProvidedAssets(userProvided);
+                this.doPrefetch(userProvided);
             }
-            //scan DOM
             if (flagToScanDOM === true) {
-                this.doPrefetch(this.scanDOM());
-            } else {
-                this.doPrefetch(this.totalAssetsToFetch);
+                this.scanDOM();
             }
-        },
-        userProvidedAssets: function(users) {
-            this.totalAssetsToFetch = users.slice();
+            this.hideObjects();
         },
         scanDOM: function() {
             var self = this;
             $(".fetch").each(function() {
-                self.totalAssetsToFetch.push($(this).attr("href"));
+                self.doPrefetch($(this).attr("href"));
             });
-            return this.totalAssetsToFetch;
         },
         doPrefetch: function(assets) {
-            $('.completely-hide').css('display', 'none');
-            for (var i = 0, max = assets.length; i < max; i++) {
-                $('body').append('<object height="1" width="1" class="completely-hide" data="' + assets[i] + '" />');
+            var objectTagOpen = '<object height="1" width="1" class="completely_hide" data="',
+                objectTagClose = '" />';
+            if (typeof assets === "string") {
+                $('body').append(objectTagOpen + assets + objectTagClose);
+            } else if (typeof assets === "object") {
+                for (var i = 0, max = assets.length; i < max; i++) {
+                    $('body').append(objectTagOpen + assets[i] + objectTagClose);
+                }
             }
+        },
+        hideObjects: function() {
+            $("object.completely_hide").css("display", "none");
         }
     }
 })();
