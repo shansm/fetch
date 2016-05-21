@@ -1,64 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style type="text/css">
-#wrapper{
-    margin:0px auto;
-    padding:20px;
-    width:960px;
+  <style type="text/css">
+    #wrapper{
+      margin: 0px auto;
+      padding: 20px;
+      width: 960px;
     }
     p{
-    font-size:16px;
-    color:#000000;
+      font-size: 16px;
+      color: #000000;
     }
     .underline{
-    text-decoration: underline;
+      text-decoration: underline;
     }
-    </style>
-
-    <title></title>
+  </style>
+  <title>fetch.js</title>
 </head>
 <body>
     <div id="wrapper">
-        <p>fetch.js - A HTML5 link prefetching script that caches pages into
-        your browser for faster loading when you visit those pages. This script
-        should be fired when the page has fully loaded (window load) to prevent
-        any delays in initial DOM manipulations, event bindings etc. during
-        document load.</p>
-
-        <p class="underline">Usage</p>
-
-        <p>You'll need to include fetch.js along with jQuery.js like so...</p>
-        <pre>
-		&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"&gt;&lt;/script&gt;
-		&lt;script src="fetch.js"&gt;&lt;/script&gt;
-		</pre>
-
-        <p>Once you have that done you'll want to initialize fetch.js. You can
+      <p>fetch.js - A HTML5 link prefetching script that caches pages into
+      your browser for faster loading when you visit those pages. This script
+      should be fired when the page has fully loaded (window load) to prevent
+      any delays in initial DOM manipulations, event bindings etc. during
+      document load.</p>
+      <p class="underline">Usage</p>
+      <p>You'll need to include fetch.js along with jQuery.js like so...</p>
+      <pre>
+        &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"&gt;&lt;/script&gt;
+        &lt;script src="fetch.js"&gt;&lt;/script&gt;
+      </pre>
+      <p>
+        Once you have that done you'll want to initialize fetch.js. You can
         provide your own URLs to cache in array format in the first argument of
-        fetch.init like so...</p>
-        <pre>
-		&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"&gt;&lt;/script&gt;
-		&lt;script src="js/fetch.js"&gt;&lt;/script&gt;
-		&lt;script type="text/javascript"&gt;
-		$(window).load(function () {
-		    fetch.init(["http://www.SlickDeals.net", "http://www.ChicagoTribune.com", "and so on..."], true);
-		});
-		&lt;/script&gt;
-		</pre>
-
-        <p>and/or you can add the class 'fetch' to any anchor link tag in the
+        fetch.init like so...
+      </p>
+      <pre>
+        &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"&gt;&lt;/script&gt;
+        &lt;script src="js/fetch.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript"&gt;
+        $(window).load(function () {
+            fetch.init(["http://www.SlickDeals.net", "http://www.ChicagoTribune.com", "and so on..."], true);
+        });
+        &lt;/script&gt;
+      </pre>
+      <p>
+        and/or you can add the class 'fetch' to any anchor link tag in the
         DOM and it will get picked up by the fetch script (by default this is
         set to true, but if you want to turn this off you can switch the second
-        arguement to false)...</p>
-        <pre>
-		fetch.init(["http://www.SlickDeals.net", "http://www.ChicagoTribune.com"], false);
-		</pre><!-- END WRAPPER -->
+        arguement to false)...
+      </p>
+      <pre>
+        fetch.init(["http://www.SlickDeals.net", "http://www.ChicagoTribune.com"], false);
+      </pre>
+    <!-- END WRAPPER -->
     </div>
-    <script src="js/jquery.min.js"></script> <script src="js/fetch.min.js"></script> <script type="text/javascript">
-	$(window).load(function () {
-    	fetch.init(["http://www.SlickDeals.net"], true);
-    });
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+    <script src="js/fetch.min.js"></script>
+    <script type="text/javascript">
+      $(window).load(function () {
+        fetch.init(["http://www.SlickDeals.net"], true);
+      });
     </script>
 </body>
 </html>
